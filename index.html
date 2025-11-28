@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Code</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: #fff;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  }
+  select, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #1669c1;
+  }
+  .msg {
+    margin-top: 15px;
+    color: green;
+    font-size: 14px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Choose Your Code</h2>
+
+  <form action="https://api.web3forms.com/submit" method="POST">
+
+    <!-- your working access key -->
+    <input type="hidden" name="access_key" value="12e42846-0d21-47c2-94ac-5f44cd65d355">
+
+    <!-- subject for your Gmail -->
+    <input type="hidden" name="subject" value="New Client Code">
+
+    <!-- Number selection -->
+    <label>Choose a number (1–99)</label>
+    <select name="code" required>
+      <script>
+        for (let i = 1; i <= 99; i++) {
+          document.write(`<option value="${i}">${i}</option>`);
+        }
+      </script>
+    </select>
+
+    <!-- optional message -->
+    <label>Message</label>
+    <textarea name="message" placeholder="Write anything here..." required></textarea>
+
+    <button type="submit">Send to Gmail</button>
+
+  </form>
+
+  <div class="msg">After sending, please check your Gmail for the code.</div>
+</div>
+
+</body>
+</html>
